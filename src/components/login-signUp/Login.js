@@ -8,6 +8,7 @@ import axios from "axios";
 
 import { Message } from "./Message";
 import { CheckCircleFill } from "react-bootstrap-icons";
+import Alert from "../functions/Alert";
 
 export default function Login({ trigger, setTrigger }) {
   const [username, setUsername] = useState("");
@@ -21,12 +22,13 @@ export default function Login({ trigger, setTrigger }) {
   // varible to know when to show div popup of successfully log in message
   const [loginPopup, setLoginPopup] = useState(false);
   const [ClassName, setClassName] = useState("alert-success");
+  const [displayMessage, setDisplayMessage] = useState("none");
 
   const resSuc = () => {
     /* function to show the message "you have successfully registered" limit
     time after user succeeded to login */
     // setTimeout(() => {
-      setLoginPopup(false);
+    setLoginPopup(false);
     // }, 5000);
     setLoginPopup(true);
   };
@@ -42,6 +44,8 @@ export default function Login({ trigger, setTrigger }) {
     const url = `http://localhost:3001/login`;
     if (loginStatus) {
       // if allredy loged in
+      setDisplayMessage("flex");
+      setClassName("alert-warning");
       setMessageIfLogedIn(`you dont need to login again you are alredy in...`);
     } else {
       // he is not loged in let him log in
@@ -85,6 +89,9 @@ export default function Login({ trigger, setTrigger }) {
             },
             (err) => {
               console.log(err);
+              setMessageIfLogedIn("somthing went wrong please try again later");
+              setDisplayMessage("flex");
+              setClassName("alert-danger");
             }
           );
       } catch (err) {
@@ -171,7 +178,11 @@ export default function Login({ trigger, setTrigger }) {
                   <label className="label-checkbox">Remember me</label>
                 </div>
                 <div>
-                  <Link onClick={() => setTrigger(false)} to={"forgot-password"} className="txt-forgpt-password">
+                  <Link
+                    onClick={() => setTrigger(false)}
+                    to={"forgot-password"}
+                    className="txt-forgpt-password"
+                  >
                     Forgot Password?
                   </Link>
                 </div>
@@ -192,15 +203,7 @@ export default function Login({ trigger, setTrigger }) {
               <div className="div-message">
                 {messageIfLogedIn ===
                 `you dont need to login again you are alredy in...` ? (
-                  <div className="alert alert-warning alert-dismissible fade show">
-                    <strong>Hey {usernameActive}</strong> you dont need to login
-                    again you are alredy in...
-                    <button
-                      type="button"
-                      className="btn-close"
-                      data-bs-dismiss="alert"
-                    ></button>
-                  </div>
+                  ""
                 ) : (
                   <div>{messageIfLogedIn}</div>
                 )}
@@ -209,6 +212,11 @@ export default function Login({ trigger, setTrigger }) {
               ""
             )}
           </div>
+          <Alert
+            message={messageIfLogedIn}
+            displayMessage={displayMessage}
+            classN={ClassName}
+          />
         </form>
       </div>
       <Message

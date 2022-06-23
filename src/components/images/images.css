@@ -1,0 +1,137 @@
+.con-pictures {
+  flex-grow: 1;
+  /* border: 1px solid rgb(102, 21, 102); */
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.row-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 100%;
+}
+.row-gallery .coulmn-gallery {
+  width: auto;
+  overflow: hidden;
+  height: 100%;
+}
+.coulmn-gallery img {
+  vertical-align: middle;
+  width: 100%;
+  /* border-radius: 5px; */
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+.row-gallery .coulmn-gallery img {
+  width: 100%;
+  height: 100%;
+}
+
+figure {
+  /* margin: 1rem 1rem 1rem !important; */
+  margin: 0 !important;
+  display: flex !important;
+  transition: 0.4s;
+  cursor: pointer;
+  object-fit: contain;
+}
+
+figure:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10em black;
+}
+.err {
+  /* styling the error text when images couldn't find  */
+  text-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  /* background-color: #acbac3; */
+  font-family: "Times New Roman", Times, serif;
+  color: #d8000c;
+  background-color: #ffd2d2;
+  margin: 10px 22px;
+  margin-top: 15%;
+  font-size: 2em;
+  vertical-align: middle;
+}
+.img {
+  border-radius: 5px;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+.div-img{
+  margin-top: 2em;
+  margin-right: 1em;
+  margin-left: 1em;
+}
+.loader {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
+  animation: animate 1.2s linear infinite;
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
+}
+
+.loader span:nth-child(1) {
+  filter: blur(5px);
+}
+
+.loader span:nth-child(2) {
+  filter: blur(10px);
+}
+
+.loader span:nth-child(3) {
+  filter: blur(25px);
+}
+
+.loader span:nth-child(4) {
+  filter: blur(50px);
+}
+
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: #f1f1f1;
+  border: solid white 10px;
+  border-radius: 50%;
+}
+/* Landscape phones and down */
+@media (max-width: 870px) {
+
+  .row-gallery{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+@media (max-width: 480px) {
+  .loader {
+    width: 200px;
+    height: 200px;
+  }
+  .row-gallery{
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+}
+

@@ -1,0 +1,16 @@
+
+.categories-items {
+  /* position: relative; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+.categories-images {
+  /* position: relative; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  overflow: auto;
+}

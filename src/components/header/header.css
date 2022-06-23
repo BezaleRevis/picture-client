@@ -1,9 +1,6 @@
 .header {
-  /* background-image: url("http://www.jthink.net/images/icon32.png"); */
-  /* position: -webkit-sticky; */
   background-repeat: no-repeat;
   background-size: cover;
-  /* padding: 0.5em; */
   position: sticky !important;
   top: 0;
   z-index: 1020;
@@ -16,12 +13,10 @@
 }
 
 .navbar-right {
-  /* border: 2px solid teal; */
   display: flex;
   flex-direction: row;
   width: auto;
   align-items: center;
-  /* justify-content: center; */
   justify-content: space-between;
   gap: 0.5em;
 }
@@ -36,7 +31,6 @@
 
 .nav-con {
   /* styling navbar container */
-  border: 2px solid red;
   display: flex;
   width: 100%;
   padding: 2px;
@@ -64,7 +58,6 @@
   font-size: 1em !important;
   background-color: #eee !important;
   font-family: "Courier New", Courier, monospace;
-  /* margin-right: 1.2em !important; */
 }
 
 .login:hover {
@@ -139,7 +132,6 @@
 .header-categories {
   /* styling the div which have component "HeaderCategories" */
   width: 100%;
-  /* margin-bottom: 0.3em; */
 }
 
 .auto-complete {
@@ -191,17 +183,13 @@
 }
 
 .login-div {
-  /* border: 2px solid royalblue; */
   margin-left: 0.4em;
 }
 
 @media (max-width: 600px) {
   .small-screen-none {
-    border: solid 2px rgb(128, 0, 109);
     padding-top: 1em;
     padding-bottom: 1em;
-    /* line-break: anywhere; */
-    /* display: none; */
   }
 
   .navbar-right {
@@ -216,7 +204,6 @@
 
   .toogler-icon {
     display: flex;
-    /* align-items: flex-start; */
     float: right;
   }
 }

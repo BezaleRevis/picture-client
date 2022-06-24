@@ -25,11 +25,8 @@ export default function Login({ trigger, setTrigger }) {
   const [displayMessage, setDisplayMessage] = useState("none");
 
   const resSuc = () => {
-    /* function to show the message "you have successfully registered" limit
-    time after user succeeded to login */
-    // setTimeout(() => {
+    /* function to show the message "you have successfully registered" */
     setLoginPopup(false);
-    // }, 5000);
     setLoginPopup(true);
   };
 

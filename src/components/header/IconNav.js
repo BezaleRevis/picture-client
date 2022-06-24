@@ -12,6 +12,7 @@ import "./iconNav.css";
 import { confirmAlert } from "react-confirm-alert"; // Import
 import { submit } from "../functions/funcs"; // importing function sudmit(confirm logout)
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
+import DeleteAccount from "../deleteAccount/DeleteAccount";
 
 export const IconNav = () => {
   const [visible, setVisible] = useState("hidden");
@@ -25,6 +26,7 @@ export const IconNav = () => {
   }, [visible]);
 
   const [loginPopup, setLoginPopup] = useState(false);
+  const [deletePopup, setDeletePopup] = useState("none");
   return (
     <div onClick={(e) => e.stopPropagation()}>
       <div
@@ -82,9 +84,15 @@ export const IconNav = () => {
         </div>
 
         <div className="button-div">
-          <Link to="/forgot-password" className="link">
-            <span className="button-from-icon">updatePassword</span>
-          </Link>
+          <span
+            onClick={() => {
+              setDeletePopup("flex");
+              console.log("clicked");
+            }}
+            className="button-from-icon span-delete"
+          >
+            Delete Account
+          </span>
         </div>
         <div className="icons button-div">
           <span className="facebook">
@@ -108,6 +116,10 @@ export const IconNav = () => {
       {!sessionStorage.getItem("loginStatus") && (
         <Login trigger={loginPopup} setTrigger={setLoginPopup} />
       )}
+      <DeleteAccount
+        displayPopup={deletePopup}
+        setDisplayPopup={setDeletePopup}
+      />
     </div>
   );
 };

@@ -94,6 +94,9 @@
   /* styling close button */
   float: left;
 }
+.span-delete{
+  color: rgb(199, 18, 18);
+}
 @media (max-width: 600px) {
   .icon-person {
     align-items: flex-start;

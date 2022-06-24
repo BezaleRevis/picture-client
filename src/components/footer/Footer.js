@@ -19,7 +19,7 @@ export const Footer = () => {
             <span className="firstName">Bezalel </span>
             <span className="lastName">Revis.</span>
             <br />
-            i'm a<strong className="full-stack">
+            i'm a <strong className="full-stack">
               full stack developer,
             </strong>{" "}
             available Full-time job, My specialization is in web development,

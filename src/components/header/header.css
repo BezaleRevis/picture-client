@@ -195,7 +195,6 @@
   .navbar-right {
     display: flex;
     flex-direction: column-reverse;
-    border: solid 2px teal;
   }
 
   .search-div {

@@ -2,22 +2,11 @@ import React from "react";
 import "./footer.css";
 import {
   Facebook,
-  Instagram,
-  Twitter,
   Github,
+  Twitter,
   Whatsapp,
-  Phone,
   Linkedin,
-  Telephone,
 } from "react-bootstrap-icons";
-import {
-  Email,
-  Login,
-  LoginOutlined,
-  LogoDev,
-  Logout,
-  PhoneCallback,
-} from "@mui/icons-material";
 
 export const Footer = () => {
   return (
@@ -30,7 +19,9 @@ export const Footer = () => {
             <span className="firstName">Bezalel </span>
             <span className="lastName">Revis.</span>
             <br />
-            i'm a<strong className="full-stack">full stack developer,</strong>{" "}
+            i'm a<strong className="full-stack">
+              full stack developer,
+            </strong>{" "}
             available Full-time job, My specialization is in web development,
             always trying to be better, i'm alwys learning fast from people
             around me, and i'm very sociable...
@@ -57,8 +48,10 @@ export const Footer = () => {
           <h2>Conect me</h2>
 
           <div className="connect-details">
-            <p className="pFooter">phone:</p>
-            <span className="pConnect">+972-528031000</span>
+            <p className="pFooter">Phone:</p>
+            <a className="pConnect" href="+972-528031000">
+              +972-528031000
+            </a>
           </div>
           <div className="connect-details">
             <p className="pFooter">Email:</p>
@@ -72,27 +65,37 @@ export const Footer = () => {
           <div className="social-madia">
             {/* <!-- Facebook --> */}
             <a href="https://www.facebook.com/profile.php?id=100007179486292">
-              <i className="facebook"><Facebook/></i>
+              <i className="facebook">
+                <Facebook />
+              </i>
             </a>
 
             {/* <!-- Twitter --> */}
-            <a href="https://www.facebook.com/profile.php?id=100007179486292">
-              <i className="twitter"><Twitter/></i>
+            <a href="https://twitter.com/7178323">
+              <i className="twitter">
+                <Twitter />
+              </i>
             </a>
 
             {/* <!-- Instagram --> */}
-            <a href="">
-              <i className="instagram"><Instagram/></i>
+            <a href="https://github.com/BezaleRevis">
+              <i className="github">
+                <Github />
+              </i>
             </a>
 
             {/* <!-- Linkedin --> */}
             <a href="">
-              <i className="linkedin"><Linkedin/></i>
+              <i className="linkedin">
+                <Linkedin />
+              </i>
             </a>
 
             {/* <!--whatsapp--> */}
             <a href="https://wa.me/+972528031000">
-              <i className="whatsapp"><Whatsapp/></i>
+              <i className="whatsapp">
+                <Whatsapp />
+              </i>
             </a>
           </div>
         </div>
@@ -102,8 +105,11 @@ export const Footer = () => {
         {/* <!--foote_bottom--> */}
         <p className="text-footer-bottom">
           Copyright @2022 | Designed by
-          <a className="a-footer-bottom" href="https://www.facebook.com/profile.php?id=100007179486292">
-            <span className="firstName">   Tzali </span>
+          <a
+            className="a-footer-bottom"
+            href="https://www.facebook.com/profile.php?id=100007179486292"
+          >
+            <span className="firstName"> Tzali </span>
             <span className="lastName">Revis.</span>
           </a>
         </p>

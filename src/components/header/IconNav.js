@@ -95,22 +95,39 @@ export const IconNav = () => {
           </span>
         </div>
         <div className="icons button-div">
-          <span className="facebook">
-            <Facebook />{" "}
-          </span>
-          <span className="whatsapp">
-            <Whatsapp />
-          </span>
-          <span className="instegram">
-            {" "}
-            <Instagram />{" "}
-          </span>
-          <span className="twitter">
-            <Twitter />{" "}
-          </span>
-          <span className="github">
-            <Github />{" "}
-          </span>
+          <a
+            href="https://www.facebook.com/profile.php?id=100007179486292"
+            className="facebook"
+          >
+            <Facebook />
+          </a>
+
+          {/* <!--whatsapp--> */}
+          <a href="https://wa.me/+972528031000">
+            <i className="whatsapp">
+              <Whatsapp />
+            </i>
+          </a>
+          {/* <!-- Instagram --> */}
+          <a href="https://www.instagram.com/bezalel803/">
+            <i className="instagram">
+              <Instagram />
+            </i>
+          </a>
+
+          {/* <!-- Twitter --> */}
+          <a href="https://twitter.com/7178323">
+            <i className="twitter">
+              <Twitter />
+            </i>
+          </a>
+
+          <a
+            href="https://github.com/BezaleRevis"
+            className="github"
+          >
+            <Github />
+          </a>
         </div>
       </div>
       {!sessionStorage.getItem("loginStatus") && (

@@ -40,21 +40,21 @@ export default function Login({ trigger, setTrigger }) {
 
   const handleLoginpBtn = (username, password) => {
     setFlag(true);
-    if (flag) {
-      setDisplayMessage("flex");
-      setClassName("alert-primary");
-      setMessageIfLogedIn("please wait while we trying to login...");
-    }
     console.log(username + " ,", password);
     const url = `https://pictures-tzali.herokuapp.com/login`;
     if (loginStatus) {
       // if allredy loged in
-      setFlag(false)
+      setFlag(false);
       setDisplayMessage("flex");
       setClassName("alert-warning");
       setMessageIfLogedIn(`you dont need to login again you are alredy in...`);
     } else {
-      // he is not loged in let him log in
+      // if:he is not loged in let him log in
+      if (flag) {
+        setDisplayMessage("flex");
+        setClassName("alert-primary");
+        setMessageIfLogedIn("please wait while we trying to login...");
+      }
       try {
         axios
           .post(url, {

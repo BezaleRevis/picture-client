@@ -12,27 +12,41 @@ const DeleteAccount = ({ displayPopup, setDisplayPopup }) => {
   const closePopup = () => {
     setDisplayPopup("none");
   };
+  const config = {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+    }
+  };
+  const [flag, setFlag] = useState(true); // varible messege while it deleting account
   async function handleDeleteAccount() {
+    setFlag(true)
     // func handeling delete account
-    const url = "http://localhost:3001/delete-account";
+    if (flag) {
+      setDisplayMessage("flex");
+      setClassName("alert-danger");
+      setMessage("please wait while it deleting account");
+    }
+    const url = "https://pictures-tzali.herokuapp.com/delete-account";
     try {
       const res = await axios.delete(url, {
         data: {
           username: username,
           password: password,
-        },
+        },config
       });
       if (res.data.message !== "your acount was successfully deleted...") {
-        console.log(typeof res.data.message);
         setClassName("alert-danger");
-        setMessage(res.data.message);
-      }else{
-        console.log("somthing");
+        setMessage("sorry we coudn't delete your account");
+      } else {
         setClassName("alert-success");
-        setMessage(res.data.message+" we are sorry you leaving us");
+        setMessage(res.data.message + " we are sorry you leaving us");
       }
+      setFlag(false);
       setDisplayMessage("flex");
     } catch (err) {
+      setClassName("alert-danger");
+      setMessage("sorry we coudn't delete your account");
       console.log(err);
     }
   }

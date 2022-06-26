@@ -12,7 +12,7 @@ const UpdatePassword = () => {
   // }
   async function handleResetPsw() {
     try {
-      const url = "http://localhost:3001/updatePassword";
+      const url = "https://tzali-picture.herokuapp.com/updatePassword";
       const response = await axios.post(url, { username, newPassword });
       setResponseData(response.data.message);
       setErrorResponseData(response.data.err);

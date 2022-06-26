@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useRef } from "react";
+import Alert from "../functions/Alert";
 import "./singup.css";
 import { Message } from "./Message";
 
@@ -24,31 +25,39 @@ export const Singup = () => {
   const inputRefUser = useRef(null);
   const inputRefPassword = useRef(null);
   const inputRefConfirmPassword = useRef(null);
-
   const resSuc = () => {
     /* function to show the message "you have successfully registered" limit
     time after user succeeded to register */
-    setTimeout(() => {
-      setLoginPopup(false);
-    }, 5000);
+    setLoginPopup(false);
     setLoginPopup(true);
   };
 
   const config = {
     headers: {
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-    }
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    },
   };
+  const [displayMessage, setDisplayMessage] = useState("none");
+  const [flag, setFlag] = useState(true); // varible messege while we regisrer
+  const [ClassName, setClassName] = useState("alert-success");
+
   const handleSingUpBtn = (username, password) => {
     // handling on click on rgister button when user finihed to enter his details
-    // console.log(password === confirmPassword);
     console.log(username + "," + password);
     if (username !== "" && password !== "") {
+      console.log(username  + "empty," + password+" empty");
       // both passwords are Matched
       if (password === confirmPassword) {
+        console.log(username + " == confirm," + password);
+        setFlag(true);
+        if (flag) {
+          setDisplayMessage("flex");
+          setClassName("alert-primary");
+          setMessageReg("please wait while we trying to register...");
+        }
         // const url = `http://localhost:3001/register?username=${username}&password=${password}`;
-        const url = `http://localhost:3001/register`;
+        const url = `https://pictures-tzali.herokuapp.com/register`;
         try {
           axios
             .post(url, {
@@ -56,17 +65,25 @@ export const Singup = () => {
               password: password,
             })
             .then((response) => {
+              setFlag(false);
               console.log(response + " hey ok");
               setMessageReg(response.data);
               resSuc();
+            })
+            .catch((err) => {
+              setClassName("alert-danger");
+              setMessageReg("sorry but we couldn't register...");
+              console.log(err);
             });
         } catch (err) {
+          setClassName("alert-danger");
+          setMessageReg("sorry but we couldn't register please try again later...");
           console.log(err);
-          alert(err);
         }
       } else {
         /* passwords are not Matched
        sending a messege to the user that passwords are not match */
+       console.log(username + " == !confirm," + password);
         setMessagePasswordConfirm(
           "Password and Confirm Password do not match."
         );
@@ -168,6 +185,11 @@ export const Singup = () => {
             <u>Login here</u>
           </a>
         </p>
+        <Alert
+          message={messageReg}
+          displayMessage={displayMessage}
+          classN={ClassName}
+        />
       </form>
       {/* <button onClick={(e) => resSuc()}>click</button> */}
       <Message

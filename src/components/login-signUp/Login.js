@@ -36,11 +36,20 @@ export default function Login({ trigger, setTrigger }) {
     });
   }, []);
 
+  const [flag, setFlag] = useState(true); // varible messege while we login in
+
   const handleLoginpBtn = (username, password) => {
+    setFlag(true);
+    if (flag) {
+      setDisplayMessage("flex");
+      setClassName("alert-primary");
+      setMessageIfLogedIn("please wait while we trying to login...");
+    }
     console.log(username + " ,", password);
-    const url = `http://localhost:3001/login`;
+    const url = `https://pictures-tzali.herokuapp.com/login`;
     if (loginStatus) {
       // if allredy loged in
+      setFlag(false)
       setDisplayMessage("flex");
       setClassName("alert-warning");
       setMessageIfLogedIn(`you dont need to login again you are alredy in...`);
@@ -55,10 +64,12 @@ export default function Login({ trigger, setTrigger }) {
           .then(
             (response) => {
               if (response.data.message) {
+                setFlag(false);
                 setClassName("alert-danger");
                 setMessageIfLogedIn(response.data.message);
               } else {
                 // if login succseded
+                setFlag(false);
                 sessionStorage.setItem("loginStatus", true); // storin
                 sessionStorage.setItem("usernameActive", username);
                 setUsernameActive(username);
@@ -86,6 +97,7 @@ export default function Login({ trigger, setTrigger }) {
             },
             (err) => {
               console.log(err);
+              setFlag(false);
               setMessageIfLogedIn("somthing went wrong please try again later");
               setDisplayMessage("flex");
               setClassName("alert-danger");
@@ -196,7 +208,7 @@ export default function Login({ trigger, setTrigger }) {
                 </button>
               </div>
             </div>
-            {loginStatus ? (
+            {/* {loginStatus ? (
               <div className="div-message">
                 {messageIfLogedIn ===
                 `you dont need to login again you are alredy in...` ? (
@@ -207,7 +219,7 @@ export default function Login({ trigger, setTrigger }) {
               </div>
             ) : (
               ""
-            )}
+            )} */}
           </div>
           <Alert
             message={messageIfLogedIn}

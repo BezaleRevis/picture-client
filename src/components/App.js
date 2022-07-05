@@ -69,7 +69,7 @@ function App() {
         <Route path="/people/search" element={<PepleSearch />}></Route>
         <Route path="/forgot-password" element={<ForgetPassword/>}></Route>
 
-        <Route path="*" element={<NotFound />}>
+        <Route path="/picture-client*" element={<NotFound />}>
           {/* if page was not found */}
         </Route>
       </Routes>

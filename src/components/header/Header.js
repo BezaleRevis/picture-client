@@ -17,7 +17,7 @@ export const Header = ({ data }) => {
   const [valueInput, setValueInput] = useState(""); // value input from search pictures
   const [filterData, setfilterData] = useState([]);
   const [displayToggle, setDisplayToggle] = useState(""); // for icon in navbar
-  const [flag, setFlag] = useState(true); // to know when to show toggle btn
+  // const [flag, setFlag] = useState(true); // to know when to show toggle btn
   const handleFilter = (e) => {
     // function which will auto comlete search pictur in input search
     setValueInput(e.target.value);

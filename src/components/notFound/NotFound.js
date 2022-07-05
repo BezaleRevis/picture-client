@@ -12,7 +12,7 @@ const NotFound = () => {
         />
       </div>
       <h4>We can't fint the page you're looking for.</h4>
-      <Link className="" to="/">
+      <Link className="" to="/picture-client">
         <button type="button" class="btn btn-info btn-lg main-btn">
           Go back home
         </button>

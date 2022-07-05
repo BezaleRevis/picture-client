@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./header.css"; // Import css
 const Navbar = () => {
   return (

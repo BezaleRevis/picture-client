@@ -42,7 +42,7 @@ export const Header = ({ data }) => {
       <div className="nav-con container-fluid">
         <div className="navbar-left">
           <div className="nav">
-            <Link className="home-bottun" to={"/"}>
+            <Link className="home-bottun" to={"/picture-client"}>
               <span>HOME</span>
             </Link>
           </div>

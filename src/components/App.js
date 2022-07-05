@@ -50,7 +50,7 @@ function App() {
       </div>
 
       <Routes>
-        <Route path="/picture-client" element={<Main />}></Route>
+        <Route path="/" element={<Main />}></Route>
         <Route path="/signup" element={<Singup />}></Route>
         <Route path="/Animals" element={<AnimalImages />}></Route>
         <Route path="/Face" element={<Face />}></Route>

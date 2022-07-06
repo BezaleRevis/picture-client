@@ -1,5 +1,4 @@
 import React from "react";
-import UnsplashSearch from "unsplash-search";
 import { Link } from "react-router-dom";
 import SearchImage from "../images/SearchImage";
 import "./main.css";

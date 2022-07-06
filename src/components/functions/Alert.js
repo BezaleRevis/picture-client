@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./function.css";
-const Alert = ({ message, displayMessage ,classN}) => {
+const Alert = ({ message, displayMessage, classN }) => {
   return (
     <div
       style={{

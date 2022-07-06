@@ -22,8 +22,9 @@ const SearchImage = () => {
     // func getting the value from search
     setPhoto(e.target.value);
   };
-  const handleSudmit = (e) => {
+  const handleSudmit = () => {
     // handling the photos user want to see
+    setClientId("2excYI0AfsK_ltD1H-BmPWnxVUkVNe97h_2TuJl6wJk")
     setLoading(true);
     const url = `${apiUnsplash}/search/photos?page=1&query=${photo}&client_id=${clientId}&count=50`;
     axios.get(url).then(
@@ -47,15 +48,12 @@ const SearchImage = () => {
     );
   };
   const [bordeColor, setBorderColor] = useState("255,255,255,.2"); // varible for border input
-  const [color, setColor] = useState("white"); //varible for input search if focused chabce the color
   const onFocus = () => {
     // function which let me know when input is on focys
-    setColor("rgba(0, 0, 0, 0.1)");
     setBorderColor("white");
   };
   const onBlur = () => {
     // function which let me know when input is not on focys
-    setColor("rgba(255,255,255,.2)");
     setBorderColor("rgba(0, 0, 0, 0.1)");
   };
 
@@ -72,11 +70,11 @@ const SearchImage = () => {
     }
   };
   // creating varible to know when user is on hower on button category
-  const [flagOnHowerCategories, setFlagCategories] = useState(false);
-  const onHowerBtnAllCategories = () => {
-    setFlagCategories(true);
-    // setFlagCategories ? setFlagCategories(true) : setFlagCategories(false);
-  };
+  // const [flagOnHowerCategories, setFlagCategories] = useState(false);
+  // const onHowerBtnAllCategories = () => {
+  //   setFlagCategories(true);
+  //   // setFlagCategories ? setFlagCategories(true) : setFlagCategories(false);
+  // };
   return (
     <div className="search">
       <div className="div-search-img bg-image">
@@ -91,7 +89,7 @@ const SearchImage = () => {
             className="con-search"
             style={{
               backgroundColor: "white",
-              color:"black",
+              color: "black",
               border: `1px solid ${bordeColor}`,
             }}
           >
@@ -139,7 +137,7 @@ const SearchImage = () => {
           </div>
         )}
         {result &&
-          result.map((image, i) => (
+          result.map((image) => (
             <div key={image.id} className="coulmn-result">
               <Unsplashimage url={image.urls.small} />
             </div>

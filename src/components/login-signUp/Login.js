@@ -13,7 +13,7 @@ import Alert from "../functions/Alert";
 export default function Login({ trigger, setTrigger }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [usernameActive, setUsernameActive] = useState("");
+  // const [usernameActive, setUsernameActive] = useState("");
   const clearInputUsername = useRef();
   const clearInputPassword = useRef();
 
@@ -34,7 +34,7 @@ export default function Login({ trigger, setTrigger }) {
     window.addEventListener("click", () => {
       setTrigger(false);
     });
-  }, []);
+  },);
 
   const [flag, setFlag] = useState(true); // varible messege while we login in
 
@@ -72,7 +72,7 @@ export default function Login({ trigger, setTrigger }) {
                 setFlag(false);
                 sessionStorage.setItem("loginStatus", true); // storin
                 sessionStorage.setItem("usernameActive", username);
-                setUsernameActive(username);
+                // setUsernameActive(username);
                 setMessageIfLogedIn(
                   <div className="alert alert-success alert-dismissible  fade show">
                     <i className="bi-check-circle-fill">
@@ -107,13 +107,6 @@ export default function Login({ trigger, setTrigger }) {
         console.log(err);
       }
     }
-  };
-  const [passwordShown, setPasswordShown] = useState(false);
-  // Password toggle handler
-  const togglePassword = () => {
-    // When the handler is invoked
-    // inverse the boolean state of passwordShown
-    setPasswordShown(!passwordShown);
   };
 
   return trigger ? (
@@ -167,7 +160,6 @@ export default function Login({ trigger, setTrigger }) {
               <input
                 ref={clearInputPassword}
                 className="form-control input"
-                type={passwordShown ? "text" : "password"}
                 autoComplete="on"
                 placeholder="Enter Password"
                 name="password"
@@ -208,18 +200,6 @@ export default function Login({ trigger, setTrigger }) {
                 </button>
               </div>
             </div>
-            {/* {loginStatus ? (
-              <div className="div-message">
-                {messageIfLogedIn ===
-                `you dont need to login again you are alredy in...` ? (
-                  ""
-                ) : (
-                  <div>{messageIfLogedIn}</div>
-                )}
-              </div>
-            ) : (
-              ""
-            )} */}
           </div>
           <Alert
             message={messageIfLogedIn}

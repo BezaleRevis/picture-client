@@ -16,7 +16,7 @@ export const Header = ({ data }) => {
   const [loginPopup, setLoginPopup] = useState(false);
   const [valueInput, setValueInput] = useState(""); // value input from search pictures
   const [filterData, setfilterData] = useState([]);
-  const [displayToggle, setDisplayToggle] = useState(""); // for icon in navbar
+  // const [displayToggle, setDisplayToggle] = useState(""); // for icon in navbar
   // const [flag, setFlag] = useState(true); // to know when to show toggle btn
   const handleFilter = (e) => {
     // function which will auto comlete search pictur in input search
@@ -30,7 +30,7 @@ export const Header = ({ data }) => {
   };
   // const handleClickToggle = () => {
   //   displayToggle === "" || displayToggle === "none"
-      // ? setDisplayToggle("flex")
+  // ? setDisplayToggle("flex")
   //     : setDisplayToggle("none");
   //   // setFlag(true);
   // };
@@ -50,9 +50,9 @@ export const Header = ({ data }) => {
 
         <div className="navbar-right">
           <div
-            style={{
-              display: displayToggle,
-            }}
+            // style={{
+            //   display: displayToggle,
+            // }}
             className="small-screen-none"
           >
             <IconNav />
